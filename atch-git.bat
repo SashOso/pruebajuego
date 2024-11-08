@@ -52,7 +52,7 @@ goto MENU
 
 :CONFIG
 echo --------------------------------
-set /p name="Name: "
+set /p name="Username: "
 git config --global user.name "%name%"
 echo --------------------------------
 set /p email="Email: "
