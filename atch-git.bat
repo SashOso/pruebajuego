@@ -5,15 +5,37 @@ cls
 cls
 echo ================================
 echo 1. Guardar Cambios
+echo 2. Actualizar Cambios
 echo 2. Subir a GitHub
 echo 3. Configurar
 echo 4. Salir
 echo ================================
 set /p opcion="Opcion: "
 if "%opcion%"=="1" goto GUARDAR
-if "%opcion%"=="2" goto SUBIR
-if "%opcion%"=="3" goto CONFIG
-if "%opcion%"=="4" goto SALIR
+if "%opcion%"=="2" goto ACTUALIZAR
+if "%opcion%"=="3" goto SUBIR
+if "%opcion%"=="4" goto CONFIG
+if "%opcion%"=="5" goto SALIR
+goto MENU
+
+
+:GUARDAR
+echo --------------------------------
+git add .
+set /p commit="Commit: "
+echo --------------------------------
+git commit -m "%commit%"
+echo -------------------------------
+git push
+echo --------------------------------
+pause
+goto MENU
+
+:ACTUALIZAR
+echo --------------------------------
+git pull
+echo --------------------------------
+pause
 goto MENU
 
 
@@ -33,19 +55,6 @@ echo --------------------------------
 set /p rama="Rama: "
 echo --------------------------------
 git push -u origin %rama%
-echo --------------------------------
-pause
-goto MENU
-
-
-:GUARDAR
-echo --------------------------------
-git add .
-set /p commit="Commit: "
-echo --------------------------------
-git commit -m "%commit%"
-echo -------------------------------
-git push
 echo --------------------------------
 pause
 goto MENU
