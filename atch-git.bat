@@ -5,14 +5,14 @@ cls
 cls
 echo ================================
 echo 1. Guardar Cambios
-echo 2. Actualizar Cambios
+echo 2. Obtener Cambios
 echo 2. Subir a GitHub
-echo 3. Configurar
+echo 3. Configurar Cuenta
 echo 4. Salir
 echo ================================
 set /p opcion="Opcion: "
 if "%opcion%"=="1" goto GUARDAR
-if "%opcion%"=="2" goto ACTUALIZAR
+if "%opcion%"=="2" goto OBTENER
 if "%opcion%"=="3" goto SUBIR
 if "%opcion%"=="4" goto CONFIG
 if "%opcion%"=="5" goto SALIR
@@ -31,7 +31,7 @@ echo --------------------------------
 pause
 goto MENU
 
-:ACTUALIZAR
+:OBTENER
 echo --------------------------------
 git pull
 echo --------------------------------
